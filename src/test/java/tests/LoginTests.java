@@ -1,4 +1,10 @@
 package tests;
 
-public class LoginTests {
+import org.testng.annotations.Test;
+
+public class LoginTests extends TestBase{
+@Test
+public void test(){}
+
+
 }

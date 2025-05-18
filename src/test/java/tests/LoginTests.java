@@ -43,4 +43,28 @@ public void loginSuccess(){
 
         Assert.assertTrue(app.getHelperUser().isLogged()); //Create method .isLogged for class HelperUser
     }
+
+    @Test
+    public void loginWrongEmail(){
+        app.getHelperUser().openLoginRegistrationForm();
+        app.getHelperUser().fillLoginRegistrationForm("svngdvgmail.com","A123456789a@");
+        app.getHelperUser().submitLogin();
+        Assert.assertTrue(app.getHelperUser().isAlertPresend("Wrong email or password")); //Create method isAlertPresent to class HelperBase
+    }
+
+    @Test
+    public void loginWrongPassword(){
+    app.getHelperUser().openLoginRegistrationForm();
+    app.getHelperUser().fillLoginRegistrationForm("svngdv@gmail.com","A123456789a");
+    app.getHelperUser().submitLogin();
+    Assert.assertTrue(app.getHelperUser().isAlertPresend("Wrong email or password"));
+    }
+
+    @Test
+    public void loginWrongUnregisteredUser(){
+    app.getHelperUser().openLoginRegistrationForm();
+    app.getHelperUser().fillLoginRegistrationForm("svngdv1988@gmail.com","A123456789a@");  //added "svngd[1988]@gmail.com
+    app.getHelperUser().submitLogin();
+    Assert.assertTrue(app.getHelperUser().isAlertPresend("Wrong email or password"));
+    }
 }

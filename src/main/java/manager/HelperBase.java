@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class HelperBase {
     WebDriver wd;
 
@@ -26,8 +28,22 @@ public class HelperBase {
     public void click (By locator){
         WebElement element = wd.findElement(locator);
         element.click();
-
     }
 
+    //Create methods for elementPresent
+    public boolean isElementPresent(By locator){
+        List<WebElement> list = wd.findElements(locator);
+        return list.size()>0;
+//        List<WebElement> list2 = wd.findElements(locator);
+//        List<WebElement> list3 = wd.findElements(locator);
+//        List<WebElement> list4 = wd.findElements(locator);
+//        List<WebElement> list5 = wd.findElements(locator);
+//        List<WebElement> list6 = wd.findElements(locator);
+//        List<WebElement> list7 = wd.findElements(locator);
+//        List<WebElement> list8 = wd.findElements(locator);
+//        List<WebElement> list9 = wd.findElements(locator);
+//        List<WebElement> list0 = wd.findElements(locator);
+
+    }
 
 }

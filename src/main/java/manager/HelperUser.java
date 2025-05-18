@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class HelperUser extends HelperBase {
+    public boolean isLogged;
+
     public HelperUser(WebDriver wd) {
         super(wd);
     }
@@ -49,7 +51,13 @@ public class HelperUser extends HelperBase {
         click(By.xpath("//button[text()='Login']"));
         }
 
+     //5 Check to element Sign Out before isLogged
+        public boolean isLogged(){
+            return isElementPresent(By.xpath("//button[text()='Sign Out']"));
+        }
 
-
-
+        //6 Created method logout ---> checking   if logging and click to Sign Out
+            public void logout() {
+            click(By.xpath("//button[text()='Sign Out']"));
+    }
 }
